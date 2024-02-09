@@ -12,4 +12,3 @@ Create orders which can be managed by staff as well as admin, update status of o
 Create a new reservation, update it, cancel it and get all reservations by date, time and customer name.
 
 2. To initialize the project write npm i in the terminal to download all the dependencies of the project which are required to run the project now write npm start to start the server then after successfully connecting to the server message will display in the terminal saying server is running at http://localhost:4000 
-
