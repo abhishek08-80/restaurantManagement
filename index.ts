@@ -1,15 +1,19 @@
-import express, { Express, Request, Response } from "express";
+import express from "express";
 import dotenv from "dotenv";
+import mysql from 'mysql2';
+// import dbConfig from "./src/config/dbConfig";
+
+import router from './src/route/restaurant/restaurant'
+const app = express();
+app.use(express.json())
 
 dotenv.config();
+const PORT: number | string = process.env.PORT || 4444;
 
-const app: Express = express();
-const port = process.env.PORT || 4000;
+router(app)
 
-app.get("/", (req, res) => {
-  res.send("Hello "); 
-});
+app.listen(PORT, ()=>{
+  console.log(`Server is up and running on http://localhost:${PORT}`)
+})
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});   
+ 
