@@ -1,7 +1,7 @@
 
 import { Sequelize, DataTypes, Model } from "sequelize";
 import sequelize from '../../config/dbConfig';
-import RestaurantAttributes from '../../utills/interface/interface'
+import {RestaurantAttributes} from '../../utills/interface/interface'
 
 
 // Extend the Model class and implement the interface
@@ -43,7 +43,7 @@ Restaurant.init({
   }); 
   
 sequelize.sync().then(() => {
-  console.log('Restaurant table created successfully!');
+  console.log('Restaurant table linked successfully!');
 }).catch((error) => {
   console.error('Unable to create table: ', error);
 });
