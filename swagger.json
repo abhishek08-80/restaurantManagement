@@ -1,0 +1,822 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "REST API for Swagger Documentation",
+    "version": "1.0.0"
+  },
+  "schemes": [
+    "http"
+  ],
+  "servers": [
+    {
+      "url": "http://localhost:3000/"
+    }
+  ],
+  "paths": {
+    "/createRestaurant": {
+      "post": {
+        "tags": [
+          "Restaurant Module"
+        ],
+        "summary": "Restaurant management system",
+        "description": "Send a message to the server and get a response added to the original text.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExampleSchemaHeader"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExampleSchemaBody"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/loginRestaurant": {
+      "post": {
+        "tags": [
+          "Restaurant Module"
+        ],
+        "summary": "Restaurant management system",
+        "description": "Send a message to the server and get a response added to the original text.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExampleSchemaHeader"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExampleSchemaBody"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/createEmployee": {
+      "post": {
+        "tags": [
+          "Employee Module"
+        ],
+        "summary": "Restaurant management system",
+        "description": "Send a message to the server and get a response added to the original text.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExampleSchemaHeader"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExampleSchemaBody"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/getEmployees/{restaurantId}": {
+      "get": {
+        "tags": [
+          "Employee Module"
+        ],
+        "summary": "Restaurant management system",
+        "description": "Send a message to the server and get a response added to the original text.",
+        "parameters": [
+          {
+            "name": "restaurantId",
+              "in": "path",
+               "description": "ID of the restaurant",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExampleSchemaHeader"
+                },
+                "404": {
+                  "description": "Not found"
+                },
+                "500": {
+                  "description": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/createMenu": {
+      "post": {
+        "tags": [
+          "Menu Module"
+        ],
+        "summary": "Restaurant management system",
+        "description": "Send a message to the server and get a response added to the original text.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExampleSchemaHeader"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExampleSchemaBody"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/getMenu/{categoryId}": {
+      "get": {
+        "tags": [
+          "Menu Module"
+        ],
+        "summary": "Restaurant management system",
+        "description": "Send a message to the server and get a response added to the original text.",
+        "parameters": [
+          {
+            "name": "categoryId",
+              "in": "path",
+               "description": "ID of the restaurant",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExampleSchemaHeader"
+                },
+                "404": {
+                  "description": "Not found"
+                },
+                "500": {
+                  "description": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getByMenuId/{menuId}": {
+      "get": {
+        "tags": [
+          "Menu Module"
+        ],
+        "summary": "Restaurant management system",
+        "description": "Send a message to the server and get a response added to the original text.",
+        "parameters": [
+          {
+            "name": "menuId",
+              "in": "path",
+               "description": "ID of the restaurant",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExampleSchemaHeader"
+                },
+                "404": {
+                  "description": "Not found"
+                },
+                "500": {
+                  "description": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getMenuByName/{item name}": {
+      "get": {
+        "tags": [
+          "Menu Module"
+        ],
+        "summary": "Restaurant management system",
+        "description": "Send a message to the server and get a response added to the original text.",
+        "parameters": [
+          {
+            "name": "item name",
+              "in": "path",
+               "description": "ID of the restaurant",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExampleSchemaHeader"
+                },
+                "404": {
+                  "description": "Not found"
+                },
+                "500": {
+                  "description": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getMenuByDescription/{item description}": {
+      "get": {
+        "tags": [
+          "Menu Module"
+        ],
+        "summary": "Restaurant management system",
+        "description": "Send a message to the server and get a response added to the original text.",
+        "parameters": [
+          {
+            "name": "item description",
+              "in": "path",
+               "description": "description of the item",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExampleSchemaHeader"
+                },
+                "404": {
+                  "description": "Not found"
+                },
+                "500": {
+                  "description": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },    
+    "/deleteMenu/{menuId}": {
+      "delete": {
+        "tags": [
+          "Menu Module"
+        ],
+        "summary": "Restaurant management system",
+        "description": "Send a message to the server and get a response added to the original text.",
+        "parameters": [
+          {
+            "name": "menuId",
+              "in": "path",
+               "description": "description of the item",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExampleSchemaHeader"
+                },
+                "404": {
+                  "description": "Not found"
+                },
+                "500": {
+                  "description": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }, 
+    "/updateMenu/{menuId}": {
+      "put": {
+        "tags": [
+          "Menu Module"
+        ],
+        "summary": "Restaurant management system",
+        "description": "Send a message to the server and get a response added to the original text.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExampleSchemaHeader"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "menuId",
+              "in": "path",
+               "description": "description of the item",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExampleSchemaHeader"
+                },
+                "404": {
+                  "description": "Not found"
+                },
+                "500": {
+                  "description": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/createOrder": {
+      "post": {
+        "tags": [
+          "Order Module"
+        ],
+        "summary": "Restaurant management system",
+        "description": "Send a message to the server and get a response added to the original text.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExampleSchemaHeader"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExampleSchemaBody"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/getOrder/{orderId}": {
+      "get": {
+        "tags": [
+          "Order Module"
+        ],
+        "summary": "Restaurant management system",
+        "description": "Send a message to the server and get a response added to the original text.",
+        "parameters": [
+          {
+            "name": "orderId",
+              "in": "path",
+               "description": "description of the item",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExampleSchemaHeader"
+                },
+                "404": {
+                  "description": "Not found"
+                },
+                "500": {
+                  "description": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getOrderByStatus/{orderStatus}": {
+      "get": {
+        "tags": [
+          "Order Module"
+        ],
+        "summary": "Restaurant management system",
+        "description": "Send a message to the server and get a response added to the original text.",
+        "parameters": [
+          {
+            "name": "orderStatus",
+              "in": "path",
+               "description": "description of the item",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExampleSchemaHeader"
+                },
+                "404": {
+                  "description": "Not found"
+                },
+                "500": {
+                  "description": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateOrder/{orderId}": {
+      "put": {
+        "tags": [
+          "Order Module"
+        ],
+        "summary": "Restaurant management system",
+        "description": "Send a message to the server and get a response added to the original text.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExampleSchemaHeader"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "menuId",
+              "in": "path",
+               "description": "description of the item",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExampleSchemaHeader"
+                },
+                "404": {
+                  "description": "Not found"
+                },
+                "500": {
+                  "description": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deleteOrder/{orderId}": {
+      "delete": {
+        "tags": [
+          "Order Module"
+        ],
+        "summary": "Restaurant management system",
+        "description": "Send a message to the server and get a response added to the original text.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExampleSchemaHeader"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExampleSchemaBody"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/createReservation": {
+      "post": {
+        "tags": [
+          "Reservation Module"
+        ],
+        "summary": "Restaurant management system",
+        "description": "Send a message to the server and get a response added to the original text.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExampleSchemaHeader"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExampleSchemaBody"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/getReservation/{customerName}": {
+      "get": {
+        "tags": [
+          "Reservation Module"
+        ],
+        "summary": "Restaurant management system",
+        "description": "Send a message to the server and get a response added to the original text.",
+        "parameters": [
+          {
+            "name": "customerName",
+              "in": "path",
+               "description": "description of the item",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExampleSchemaHeader"
+                },
+                "404": {
+                  "description": "Not found"
+                },
+                "500": {
+                  "description": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateReservation/{reservationId}": {
+      "put": {
+        "tags": [
+          "Reservation Module"
+        ],
+        "summary": "Restaurant management system",
+        "description": "Send a message to the server and get a response added to the original text.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExampleSchemaHeader"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "menuId",
+              "in": "path",
+               "description": "description of the item",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExampleSchemaHeader"
+                },
+                "404": {
+                  "description": "Not found"
+                },
+                "500": {
+                  "description": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deleteReservation/{reservationId}": {
+      "delete": {
+        "tags": [
+          "Reservation Module"
+        ],
+        "summary": "Restaurant management system",
+        "description": "Send a message to the server and get a response added to the original text.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExampleSchemaHeader"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExampleSchemaBody"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ExampleSchemaBody": {
+        "properties": {
+          "responseText": {
+            "type": "string",
+            "example": "done successfully"
+          }
+        }
+      },
+      "ExampleSchemaHeader": {
+        "required": [
+          "text"
+        ],
+        "properties": {
+          "text": {
+            "type": "string",
+            "example": "This is some example string!"
+          }
+        }
+      }
+    }
+  }
+}

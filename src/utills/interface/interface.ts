@@ -1,4 +1,5 @@
-import Role from "../enums/enum";
+import { Json } from "sequelize/types/utils";
+import {Role, orderStatus, categories} from "../enums/enum";
 
 
 
@@ -14,7 +15,18 @@ export interface RestaurantAttributes {
 }
 
 
+export interface Decoded {
+  _id: string;
+  email: string;
+  // Add more properties if `decoded` has more properties
+}
 
+// Define interface for req object
+export interface Req {
+  _id: string;
+  email: string;
+  // Add more properties if `req` has more properties
+}
 
 export  interface employeeAttributes {
   name: string;
@@ -33,12 +45,37 @@ export interface categoryAttributes {
 } 
                 
 export interface menuAttributes {
+  id?: number
   name?: string,
   restaurantId: number,
-  categoryId: number,
+  category: categories,
   isActive?: boolean,
   price: number,
   slug?: string
+  description: string
 }
+
+export interface reservationAttributes {
+  customerName?: string,
+  restaurantId: number,
+  employeeId: number,
+  phoneNo: number,
+  numberOfGuests: number
+}
+
+
+export interface orderAttributes {
+  id?:number,
+  itemName: Json,
+  status?: orderStatus,
+  total?: number,
+  customerName: string,
+  phoneNo: number,
+  restaurantId?: number,
+  address?: string
+}
+
+
+
 // export interface IngredientInput extends Optional<IngredientAttributes, 'id' > {}
 // export interface IngredientOuput extends Required<IngredientAttributes> {}

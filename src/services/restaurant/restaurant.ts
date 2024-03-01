@@ -34,7 +34,7 @@ async function loginRestaurant (req: Request, res:Response){
     if (validEmail){
       const checkPassword = await validPassword(req,res)
       if(checkPassword){
-        return res.status(201).json({message: 'login successfully',validEmail })
+        return res.status(201).json({message: 'login successfully',checkPassword})
       }else{
       return res.status(400).json({ message: "Incorrect Password." });
 
@@ -48,8 +48,6 @@ async function loginRestaurant (req: Request, res:Response){
   }
 }
  
-
-
 export default { 
   creatingRestaurant,
   loginRestaurant

@@ -1,13 +1,15 @@
-import employeeRoute from "./restaurant"
+import employeeRoute from "./employee"
 import restaurantRoute from "./restaurant"
-import categoryRoutes from "./category"
-import menuRoutes from './menu'
+import menuRoutes from './menu';
+import reservationRoute from './reservation'
+import orderRoute from './order';
 
 const routes = async (app: any) =>{
     employeeRoute(app)
     restaurantRoute(app)
-    categoryRoutes(app)
     menuRoutes(app)
+    reservationRoute(app)
+    orderRoute(app)
 }
 
 

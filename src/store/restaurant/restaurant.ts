@@ -1,5 +1,7 @@
 import restaurantModel from "../../model/restaurant/restaurant";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import { TOKEN_KEY } from "../../config/env";
 async function findRestaurant(req: any, res: any) {
   try {
     const { email }: any = req.body;
@@ -32,10 +34,10 @@ async function createRestaurant(req: any, res: any) {
   }
 };
 
-async function validPassword(req: any, res: any){
+async function validPassword(req: any, res: any) {
   try {
-    const {password, email} = req.body
-    const restaurant:any = await restaurantModel.Restaurant.findOne({
+    const { password, email } = req.body
+    const restaurant: any = await restaurantModel.Restaurant.findOne({
       where: {
         email: email
       }
@@ -43,9 +45,13 @@ async function validPassword(req: any, res: any){
 
     const checkPassword = await bcrypt.compare(password, restaurant?.password)
 
-    if (checkPassword){
-        return checkPassword
-    }else{
+    if (checkPassword) {
+      const token = jwt.sign(
+        { _id: restaurant._id, email },
+        TOKEN_KEY)
+      return { restaurant, token }
+
+    } else {
       return null;
     }
   } catch (error) {

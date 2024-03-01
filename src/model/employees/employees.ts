@@ -1,7 +1,7 @@
 import { Sequelize, DataTypes, Model } from "sequelize";
 import sequelize from '../../config/dbConfig';
 import { employeeAttributes } from '../../utills/interface/interface'
-import Role from "../../utills/enums/enum";
+import { Role } from "../../utills/enums/enum";
 
 
 
@@ -43,20 +43,20 @@ employee.init({
     restaurantId: {
         type: DataTypes.INTEGER,
         references: {
-           model: 'restaurants',
-           key: 'id', 
+            model: 'restaurants',
+            key: 'id',
         }
-     }
+    }
 }, {
     sequelize,
     modelName: 'employee'
-  }); 
-  
-  sequelize.sync().then(() => {
-    console.log('Employee table linked successfully!');
-  }).catch((error) => {
-    console.error('Unable to create table: ', error);
-  });
-  
+});
 
-  export default {employee}
+sequelize.sync().then(() => {
+    console.log('Employee table linked successfully!');
+}).catch((error) => {
+    console.error('Unable to create table: ', error);
+});
+
+
+export default { employee }

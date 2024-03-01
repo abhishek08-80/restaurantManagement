@@ -7,4 +7,3 @@ const restaurantRoute = (app :any) => {
     app.post('/loginRestaurant', creatingRestaurant.loginRestaurant);
  }
  export default restaurantRoute;
- 

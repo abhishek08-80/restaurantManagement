@@ -15,6 +15,18 @@ async function validRestaurant(req: any, res: any) {
   }
 };
 
+async function validRestCheckByParams(req: any, res: any) {
+  try {
+    const restaurantId: any = req.params.id;
+    const restaurant: any = await restaurantSchema.Restaurant.findByPk(restaurantId);
+    if (restaurant) {
+      return restaurant; // Return the restaurant if found
+    }
+    return null;   // Return null if the restaurant is not found
+  } catch (error) {
+    throw error;
+  }
+};
 
 async function findEmployee(req: any, res: any) {
   try {
@@ -49,11 +61,28 @@ async function createEmployee(req: any, res: any) {
   }
 };
 
-
+async function getEmployees(req: any, res: any) {
+  try {
+    const restaurantId: any = req.params.id
+    const employee = await employees.employee.findAll({
+      where: {
+        restaurantId: restaurantId
+      }
+    })
+    if (employee.length === 0) {
+      return null
+    }
+    return employee
+  } catch (error) {
+    throw error;
+  }
+}
 
 export {
   createEmployee,
   findEmployee,
-  validRestaurant
+  validRestCheckByParams,
+  validRestaurant,
+  getEmployees
 }
 
