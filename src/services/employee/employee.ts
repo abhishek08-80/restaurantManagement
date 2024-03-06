@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { createEmployee,findEmployee, validRestaurant, getEmployees,validRestCheckByParams } from '../../store/employee/employee';
+import { createEmployee,findEmployee, validRestaurant, getEmployees,validRestCheckByParams, validPassword } from '../../store/employee/employee';
 
 
 async function creatingEmployee(req: Request, res: Response) {
@@ -57,7 +57,29 @@ async function creatingEmployee(req: Request, res: Response) {
 
  
 
+  async function loginEmployee (req: Request, res:Response){
+    try {
+      const {email, password} = req.body;
+      const validEmail = await findEmployee(req,res);
+      if (validEmail){
+        const checkPassword = await validPassword(req,res)
+        if(checkPassword){
+          return res.status(201).json({message: 'login successfully',checkPassword})
+        }else{
+        return res.status(400).json({ message: "Incorrect Password." });
+  
+        }
+      }else{
+        return res.status(400).json({ message: "no Restaurant is registered with this email." });
+      }
+    } catch (error) {
+      return res.status(500).json({ message: 'error while creating restaurant.'});
+      
+    }
+  }
+
   export default {
     creatingEmployee,
-    getEmployeeByRest
+    getEmployeeByRest,
+    loginEmployee
   }

@@ -67,6 +67,8 @@ async function validOrderAndGetByStatus(req: any, res: any) {
     const orderStatus: string = req.params.orderStatus
     console.log(orderStatus)
     const validOrderById = await order.order.findAll({
+      limit: 3,
+      // offset:1,
       where: {
         status: orderStatus
       }

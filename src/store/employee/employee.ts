@@ -1,6 +1,8 @@
 import employees from "../../model/employees/employees";
 import bcrypt from 'bcrypt'
 import restaurantSchema from "../../model/restaurant/restaurant";
+import jwt from "jsonwebtoken";
+import { TOKEN_KEY } from "../../config/env";
 
 async function validRestaurant(req: any, res: any) {
   try {
@@ -65,6 +67,7 @@ async function getEmployees(req: any, res: any) {
   try {
     const restaurantId: any = req.params.id
     const employee = await employees.employee.findAll({
+      limit: 2,
       where: {
         restaurantId: restaurantId
       }
@@ -78,11 +81,42 @@ async function getEmployees(req: any, res: any) {
   }
 }
 
+
+
+
+async function validPassword(req: any, res: any) {
+  try {
+    const { password, email } = req.body
+    const employee: any = await employees.employee.findOne({
+      where: {
+        email: email
+      }
+    })
+
+    const role = await employee.role
+    console.log(role)
+    const checkPassword = await bcrypt.compare(password, employee?.password)
+
+    if (checkPassword) {
+      const token = jwt.sign(
+        { _id: employee._id, email, role },
+        TOKEN_KEY)
+      return { employee, token }
+
+    } else {
+      return null;
+    }
+  } catch (error) {
+    throw error;
+  }
+}
+
 export {
   createEmployee,
   findEmployee,
   validRestCheckByParams,
   validRestaurant,
-  getEmployees
+  getEmployees,
+  validPassword
 }
 

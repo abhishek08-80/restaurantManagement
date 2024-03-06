@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { createMenu, validRestaurant,validCategoryByBody,updateMenuItem, getByMenuIdByBody,validCategory,getMenuAndDelete, findMenu, getMenuByCat, getByMenuId, menuByName, menuByDesc } from '../../store/menu/menu';
+import { createMenu, validRestaurant,updateMenuItem,getMenuAndDelete, findMenu, getMenuByCat, getByMenuId, menuByName, menuByDesc } from '../../store/menu/menu';
 
 
 async function creatingMenu(req: Request, res: Response) {
@@ -13,7 +13,7 @@ async function creatingMenu(req: Request, res: Response) {
     if (!validRestaurantInSchema) {
       return res.status(400).json({ message: "restaurant does not exists." });
     }
-    // const validCategoryInSchema: string = await validCategoryByBody(req, res);
+    // const validCategoryInSchema: string = await(req, res);
     // if (!validCategoryInSchema) {
     //   return res.status(400).json({ message: "category does not exists." });
     // }
@@ -47,7 +47,6 @@ async function getMenuByCategory(req: Request, res: Response) {
 
     const getByCategory = await getMenuByCat(req, res)
 
-
     console.log(getByCategory)
     return res.json({ message: getByCategory })
   } catch (error) {
@@ -61,7 +60,6 @@ async function getMenuByMenuId(req: Request, res: Response) {
     const menuId: string = req.params.id
 
     const getByMenu = await getByMenuId(req, res)
-
 
     console.log(getByMenu)
     return res.json({ message: getByMenu })

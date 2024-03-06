@@ -61,6 +61,7 @@ async function getReservationByName(req: any, res: any) {
   try {
     const name: string = req.params.customerName;
     const reservation: any = await reservationSchema.reservation.findAll({
+      limit: 2,
       where: {
         customerName: name
       }

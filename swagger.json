@@ -121,7 +121,12 @@
           "500": {
             "description": "Internal server error"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/getEmployees/{restaurantId}": {
@@ -199,7 +204,7 @@
         }
       }
     },
-    "/getMenu/{categoryId}": {
+    "/getMenu/{categoryName}": {
       "get": {
         "tags": [
           "Menu Module"
@@ -208,9 +213,9 @@
         "description": "Send a message to the server and get a response added to the original text.",
         "parameters": [
           {
-            "name": "categoryId",
+            "name": "categoryName",
               "in": "path",
-               "description": "ID of the restaurant",
+               "description": "categoryName of the restaurant",
             "required": true,
             "schema": {
               "type": "string"
@@ -797,6 +802,13 @@
     }
   },
   "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
     "schemas": {
       "ExampleSchemaBody": {
         "properties": {

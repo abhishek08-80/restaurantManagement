@@ -14,6 +14,21 @@ export interface RestaurantAttributes {
   password: string;
 }
 
+export interface Decode {
+  _id: string;
+  email: string;
+  role: string; 
+  // Add more properties if `decoded` has more properties
+}
+
+// Define interface for req object
+export interface Requests {
+  _id: string;
+  email: string;
+  role: string; 
+  // Add more properties if `req` has more properties
+}
+
 
 export interface Decoded {
   _id: string;
@@ -30,7 +45,7 @@ export interface Req {
 
 export  interface employeeAttributes {
   name: string;
-  role: Role;
+  role?: Role;
   email: string;
   password: string;
   isActive: boolean;
@@ -74,6 +89,15 @@ export interface orderAttributes {
   restaurantId?: number,
   address?: string
 }
+
+// export interface paymentAttributes{
+//   id? : number,
+//   orderId: number,
+//   paymentMethod : string,
+//   createdDate: Date,
+//   status : paymentEnum,
+//   amount: number,
+// }
 
 
 

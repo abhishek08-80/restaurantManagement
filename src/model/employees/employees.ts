@@ -11,7 +11,7 @@ class employee extends Model<employeeAttributes> implements employeeAttributes {
     public password!: string;
     public isActive!: boolean;
     public address!: string;
-    public role!: Role;
+    public role?: Role;
     public restaurantId!: number;
 }
 
@@ -38,7 +38,8 @@ employee.init({
     role: {
         type: DataTypes.ENUM,
         values: Object.values(Role),
-        allowNull: false
+        allowNull: false,
+        defaultValue: Role.Staff
     },
     restaurantId: {
         type: DataTypes.INTEGER,

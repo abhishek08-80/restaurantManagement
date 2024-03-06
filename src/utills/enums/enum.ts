@@ -17,3 +17,7 @@ export enum categories{
     dessert = 'dessert',
     starters = 'starters'
 }
+
+// export enum paymentEnum{
+
+// }

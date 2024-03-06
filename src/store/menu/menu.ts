@@ -92,6 +92,7 @@ async function getMenuByCat(req: any, res: any) {
   try {
     const category: string = req.params.category
     const menu = await menuSchema.menu.findAll({
+      limit: 2,
       where: {
         category: category
       }
@@ -137,7 +138,7 @@ async function validMenu(req: any, res: any) {
 
 async function menuByName(req: any, res: any) {
   try {
-    const name: string = req.params.name
+    const name: string = req.query.name
     console.log(name)
     const slug: string = slugify(name, { lower: true })
     const menu = await menuSchema.menu.findOne({
