@@ -18,9 +18,11 @@ async function createOrder(req: Request, res: Response) {
 
         const validItems = await validItem(req, res)
         if (!validItems) {
-            return res.json({ message: 'nonon' })
+            return res.json({ message: 'item currently unavailable' })
         }
+        
         const saveOrder = await newOrder(req, res)
+
         // if(saveOrder){ 
         return res.status(201).json({ message: 'order placed succesfully', data: saveOrder })
 

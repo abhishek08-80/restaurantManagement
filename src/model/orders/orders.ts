@@ -1,10 +1,10 @@
 import { Sequelize, DataTypes, Model } from "sequelize";
 import sequelize from '../../config/dbConfig';
-import { orderAttributes } from '../../utills/interface/interface'
+import { ordersAttributes } from '../../utills/interface/interface'
 import { orderStatus } from "../../utills/enums/enum";
 import { Json } from "sequelize/types/utils";
 
-class order extends Model<orderAttributes> implements orderAttributes {
+class orders extends Model<ordersAttributes> implements ordersAttributes {
     public id?: number;
     public itemName!: Json;
     public restaurantId!: number;
@@ -17,7 +17,7 @@ class order extends Model<orderAttributes> implements orderAttributes {
     public customerEmail!: string;
 }
 
-order.init({
+orders.init({
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -74,7 +74,7 @@ sequelize.sync().then(() => {
 });
 
 
-export default { order } 
+export default { orders } 
 
     //   type: DataTypes.STRING,
     //   allowNull: false

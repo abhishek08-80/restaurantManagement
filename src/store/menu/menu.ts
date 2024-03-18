@@ -168,6 +168,22 @@ async function menuByDesc(req: any, res: any) {
   }
 }
 
+
+async function menuByTime(req: any, res: any) {
+  try {
+    const time: string = req.params.time
+    console.log(time)
+    const menu = await menuSchema.menu.findOne({
+      where: {
+        // createdAt: 
+      }
+    })
+    return menu
+  } catch (error) {
+    throw error;
+  }
+}
+
 async function getMenuAndDelete(req: any, res: any) {
   try {
     const id: number = req.params.id
@@ -214,6 +230,7 @@ export {
   getMenuAndDelete,
   updateMenuItem,
   validCategoryByBody,
-  getByMenuIdByBody
+  getByMenuIdByBody,
+  menuByTime
 }
 

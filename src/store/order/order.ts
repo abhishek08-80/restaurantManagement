@@ -1,14 +1,42 @@
-import order from '../../model/order/order'
-import menuSchema from '../../model/menu/menu'
+import order from '../../model/order/order';
+import menuSchema from '../../model/menu/menu';
+import stripe from 'stripe';
+
+import { STRIPE_SECRET_KEY } from '../../config/env'
+
+const stripeInstance = new stripe(STRIPE_SECRET_KEY); // Create a Stripe instance
 
 
 async function newOrder(req: any, res: any) {
   try {
     // console.log(itemName, customerName, phoneNo, restaurantId, address)
-    const newReservation: any = await order.order.create(req.body)
     // .catch((error)=>{
     //   console.log(error)
     // })
+
+    const { itemName, source } = req.body;
+
+    const value = itemName.item1
+    console.log(value)
+    const getValueDetail = await menuSchema.menu.findOne({
+      where: {
+        name: value
+      }
+    })
+    const amount = await getValueDetail?.price
+    console.log(amount)
+
+    req.body.amount = amount
+    const newReservation: any = await order.order.create(req.body)
+
+    // Create a charge for the customer
+    const charge = await stripeInstance.charges.create({
+      amount: amount,
+      currency: 'xaf',
+      source: source,
+    });
+    // console.log(charge)
+
     return newReservation;
   } catch (error) {
     throw error;

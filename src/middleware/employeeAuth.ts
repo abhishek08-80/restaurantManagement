@@ -24,7 +24,7 @@ function authEmployee(req: Request, res: Response, next: NextFunction) {
                     next();
                 } else {
                     // If the role is not 'admin', deny access
-                    return res.status(403).json({ message: 'Access denied. Admin role required.' });
+                    return res.status(403).json({ message: 'Access denied, Only admin can access this route.' });
                 }
             });
         } else {

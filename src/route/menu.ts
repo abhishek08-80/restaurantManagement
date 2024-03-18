@@ -8,6 +8,7 @@ const restaurantRoute = (app :any) => {
     app.get('/getByMenuId/:id',rateLimiter, creatingMenu.getMenuByMenuId) 
     app.get('/getMenuByName/:name',rateLimiter, creatingMenu.getMenuByName);
     app.get('/getMenuByDescription/',rateLimiter, creatingMenu.getMenuByDescription)
+    app.get('/getMenuBytime/',rateLimiter, creatingMenu.getMenuByDescription)
     app.delete('/deleteMenu/:id',rateLimiter, creatingMenu.deleteMenu)
     app.put('/updateMenu/:id',rateLimiter, creatingMenu.updateMenu)
 }

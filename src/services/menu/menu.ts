@@ -98,6 +98,21 @@ async function getMenuByDescription(req: Request, res: Response) {
   }
 }
 
+
+async function getMenuByTime(req: Request, res: Response) {
+  try {
+    const getByTime = await menuByDesc(req, res)
+    console.log(getByTime)
+    if(getByTime){
+    return res.status(200).json({ "Data recieved successfully": getByTime })
+    }else{
+      return res.status(400).json({message: 'dish with this description does not exists'})
+    }
+  } catch (error) {
+    return res.status(500).json({ message: 'Error while retrieving menu.' });
+  }
+}
+
 async function deleteMenu(req: Request, res: Response){
   try {
     const menuId: string= req.params.id
@@ -145,5 +160,6 @@ export default {
   getMenuByName,
   getMenuByDescription,
   deleteMenu,
-  updateMenu
+  updateMenu,
+  getMenuByTime
 }

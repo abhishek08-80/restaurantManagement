@@ -99,7 +99,7 @@ async function validPassword(req: any, res: any) {
 
     if (checkPassword) {
       const token = jwt.sign(
-        { _id: employee._id, email, role },
+        { _id: employee._id, email, role},
         TOKEN_KEY)
       return { employee, token }
 

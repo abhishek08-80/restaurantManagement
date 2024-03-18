@@ -9,5 +9,3 @@ const reservationRoute = (app :any) => {
     app.put('/updateReservation/:reservationId',rateLimiter, creatingReservation.updateReservation); 
  }
  export default reservationRoute;
- 
- 

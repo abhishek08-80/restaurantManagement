@@ -1,5 +1,5 @@
 import { Json } from "sequelize/types/utils";
-import {Role, orderStatus, categories} from "../enums/enum";
+import { Role, orderStatus, categories } from "../enums/enum";
 
 
 
@@ -17,7 +17,7 @@ export interface RestaurantAttributes {
 export interface Decode {
   _id: string;
   email: string;
-  role: string; 
+  role: string;
   // Add more properties if `decoded` has more properties
 }
 
@@ -25,7 +25,7 @@ export interface Decode {
 export interface Requests {
   _id: string;
   email: string;
-  role: string; 
+  role: string;
   // Add more properties if `req` has more properties
 }
 
@@ -43,7 +43,7 @@ export interface Req {
   // Add more properties if `req` has more properties
 }
 
-export  interface employeeAttributes {
+export interface employeeAttributes {
   name: string;
   role?: Role;
   email: string;
@@ -57,8 +57,8 @@ export interface categoryAttributes {
   name: string,
   restaurantId: number,
   slug: string
-} 
-                
+}
+
 export interface menuAttributes {
   id?: number
   name?: string,
@@ -80,15 +80,36 @@ export interface reservationAttributes {
 
 
 export interface orderAttributes {
-  id?:number,
+  id?: number,
   itemName: Json,
   status?: orderStatus,
-  total?: number,
   customerName: string,
   phoneNo: number,
   restaurantId?: number,
   address?: string
+  amount?: number,
+  source: string,
+  customerEmail: string  
 }
+
+export interface ordersAttributes {
+  id?:number,
+  itemName: Json,
+  status?:orderStatus,
+  customerName:string,
+  phoneNo:number,
+  restaurantId:number,
+  address?:string,
+  amount?:number,
+  source:string,
+  customerEmail?:string
+}
+
+// export interface orderAttribute extends orderAttributes{
+//   amount?: number,
+//   source: string,
+//   customerEmail: string
+// }
 
 // export interface paymentAttributes{
 //   id? : number,
